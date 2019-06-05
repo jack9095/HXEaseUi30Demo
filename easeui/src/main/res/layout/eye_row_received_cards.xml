@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="13dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_chat_activity">
+
+        <!--发送人的头像-->
+        <com.hyphenate.easeui.widget.EaseImageView
+            android:id="@+id/iv_userhead"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/margin_chat_activity"
+            android:src="@drawable/ease_default_avatar"
+            android:scaleType="fitXY" />
+
+        <!-- 发送的布局 -->
+        <LinearLayout
+            android:id="@+id/layout_ll_root"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/iv_userhead"
+            android:background="@drawable/shape_custom_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000">
+
+
+                <!--发送出去的图片-->
+                <ImageView
+                    android:id="@+id/iv_head_card"
+                    android:layout_toRightOf="@+id/ll_tx"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    />
+
+                <!--发送出去的标题-->
+                <LinearLayout
+                    android:id="@+id/ll_tx"
+                    android:orientation="vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_name_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="name" />
+
+                    <!-- 发送出去的内容 -->
+                    <TextView
+                        android:id="@+id/tv_city_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="city" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_height="0.5dp"
+                android:background="#bfbfbf"/>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="right"
+                android:text="微服务"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

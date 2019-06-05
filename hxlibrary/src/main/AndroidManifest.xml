@@ -1,0 +1,160 @@
+<manifest package="easemob.com.hxlibrary"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <!-- 开机自启动服务 -->
+        <receiver android:name="easemob.com.hxlibrary.receiver.StartServiceReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="pengyu#xzlj" /> <!-- 声明SDK所需的service SDK核心功能 -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true"
+            tools:ignore="ExportedService" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 百度地图所需的service -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="wONe0kWQ2nL0vrDCjZfDToE9dPDUV3mv" />
+
+
+
+        <!-- 环信自定义库中的 start -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.AddContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.sendchat.ChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.ChatRoomDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.ContextMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.EditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.ExitGroupDialog"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.ForwardMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.GroupDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.GroupPickContactsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.GroupsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.GroupSearchMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.sendchat.ImageGridActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.PickAtUserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.PickContactNoCheckboxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.RecorderVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.ServiceCheckActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.SharedFilesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.UserProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.NewFriendsMsgActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.PublicChatRoomsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.NewChatRoomActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.RobotsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.NewGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.PublicGroupsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.GroupSimpleDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="easemob.com.hxlibrary.group.PublicGroupsSeachActivity"
+            android:screenOrientation="portrait" /> <!-- 语音通话 -->
+        <activity
+            android:name="easemob.com.hxlibrary.conversation.VoiceCallActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" /> <!-- 视频通话 -->
+        <activity
+            android:name="easemob.com.hxlibrary.conversation.VideoCallActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" />
+        <!-- 环信自定义库中的 end -->
+    </application>
+</manifest>
+
